@@ -1,4 +1,4 @@
-<!-- saved from url=(0050)file:///C:/Users/swans_000/Desktop/ResumeHTML.html -->
+
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JSwanson Resume</title>
 <script type="text/javascript">
@@ -9,7 +9,18 @@
 body {
   background-color: rgb(0, 192, 255);
 }
-h1 {
+#myname {
+  /*text-align: center;
+  width: 80%;
+  height: 50px;*/
+  text-align: center;
+  width: 200px;
+  font-size: 2em;
+  position: relative;
+  -webkit-animation: backnforth 8s infinite;
+  animation: backnforth 8s infinite;
+}
+h2 {
   text-align: center;
 }
 #geninfo {
@@ -20,12 +31,35 @@ h1 {
   text-align: center;
   width: 100%;
 }
+.tblskills {
+  
+}
+/* .class selector; #id selector*/
+.grow:hover {
+	transform: scale(1.5);
+	transition: all .3s ease-in-out;
+}
+
+/* Chrome, Opera, Safari */
+@-webkit-keyframes backnforth {
+	0% {left: 20%;}
+	50% {left: 60%;}
+	100% {left: 20%;}	
+}
+@keyframes backnforth {
+	0% {left: 20%;}
+	50% {left: 60%;}
+	100% {left: 20%;}
+}
+
 </style>
 
 </head>
 
 <body>
-<h1>Jeremy Swanson</h1>
+<div style="width:100%;">
+<div id="myname">Jeremy Swanson</div>
+</div>
 
 <div id="geninfo">
 <table id="table1">
@@ -33,14 +67,39 @@ h1 {
 <tbody><tr>
 
 	<td>Lowell, MA</td>
-	<td>(Insert Number Here)</td>
 	<td><a href="mailto:jeremy@jlswanson.com?Subject=JLSwanson%20Website">jeremy@jlswanson.com</a></td>
 
 </tr>
 
 
-</tbody></table>
-
+</tbody></table></div>
+<h2>Summary</h2>
+<ul>
+	<div class="grow"><li>Self-starter; 5+ years’ experience proactively identifying processes that can be automated, then building systems to electronically perform tasks and record data</li></div>
+	<div class="grow"><li>Employee awards – recognized as the top quarterly performer in 30 member team in 4Q of 2014, and received special recognition in a 115 person organization twice</li></div>
+	<div class="grow"><li>Pursuing a degree in IT and certificate in Java Development (4.0 GPA)</li></div>
+</ul>
+<hr>
   <h2>Skills</h2>
+  <table class="tblskills">
+  	<tr>
+  		<th>Languages</th>
+  		<td>C, C++, Java, SQL, Python, JavaScript, XML, HTML, Visual Basic</td>
+  	</tr>
+  	<tr>
+  		<th>Applications</th>
+  		<td>Visual Studio, Eclipse, NetBeans, SharePoint, Adobe LiveCycle Designer, Microsoft Office (including Access and Project Professional)</td>
+  	</tr>
+  	<tr>
+  		<th>Database Systems</th>
+  		<td>Oracle 10/11g, MySQL, MS Access</td>
+  	</tr>
+  	<tr>
+  		<th>Operating Systems</th>
+  		<td>Linux, Windows (XP through 10), Mac OS X</td>
+  	</tr>
+  </table>
+<hr>
 
+<h2>Education</h2>
 </div></body></html>
