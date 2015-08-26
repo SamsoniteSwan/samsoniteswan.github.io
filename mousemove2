@@ -1,0 +1,49 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<title>Dripping Numbers</title> 
+<style>
+ html, body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ }
+ #valy {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ } 
+</style>
+</head>
+<body>
+<script>
+  function handleMouseMove(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+
+    document.getElementById("valy").innerHTML = "x val= [" + x + "] y val= [" + y + "]";
+    
+    var interv = setInterval(function(){makeVal(x, y)}, 2000);
+    
+  }
+  
+  function makeval(x, y) {
+
+    /*
+    var el = document.createElement("div");
+    el.setAttribute("left", x + "px");
+    el.setAttrubute("top", y + "px");
+    var ely = document.getElementById("valy");
+    var text = document.createTextNode("0");
+    el.appendChild(text);
+    ely.appendChild(el);
+    */
+    var ely = document.getElementById("valy");
+    ely.setAttribute("left", x);
+    ely.setAttribute("top", y);
+  }
+  
+</script>
+
+<div id="valy" onmousemove="handleMouseMove(event)"></div>
+</body>
+</html>
