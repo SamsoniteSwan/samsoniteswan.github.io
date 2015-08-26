@@ -1,0 +1,49 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<title>Dripping Numbers</title> 
+<style>
+ html, body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ }
+ #valy {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ } 
+</style>
+</head>
+<body>
+<script>
+  function handleMouseMove(event) {
+  
+    var locX, locY, eventDoc, doc, body;
+    event = event || window.event;
+    
+    if (event.locX == null && event.clientX != null) {
+    
+      eventDoc = (event.target && event.target.ownerDocument) || document;
+      doc = eventDoc.ducumentElement;
+      body = eventDoc.body;
+      
+      event.locX = event.clientX +
+      (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+      (doc && doc.clientLeft || body && body.clientLeft || 0);
+      
+      event.locY = event.clientY +
+      (doc && doc.scrollTop || body && body.scrollTop || 0) -
+      (doc && doc.clientTop || body && body.clientTop || 0);
+    
+    }
+    
+    document.getElementById("valx").innerHTML = "x val= [" + event.locX + "] y val= [" + event.locY + "]";
+    document.getElementById("valy").innerHTML = event.locY;
+    
+  }
+</script>
+
+<p id="valx"></p>
+<div id="valy" onmousemove="></div>
+</body>
+</html>
