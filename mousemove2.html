@@ -15,6 +15,13 @@
  #coord {
   position: absolute;
  }
+ #btm {
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+  text-align: center;
+  vertical-align: bottom;
+ }
  .fallVal {
   position: absolute;
  }
@@ -24,18 +31,23 @@
 
  var x, y, objCoord;
  var fallingVals = [];
- /*var interv = setInterval(function(){makeVal()}, 2000);*/
 
+/*
+ function fallingObject(value, startX, startY) {
+  this.text = value;
+  this.posX = startX;
+  this.posY = startY;
+ }
+ */
  
-  function handleMouseMove(event) {
-    x = Math.round(event.clientX);
-    y = Math.round(event.clientY);
+ function handleMouseMove(event) {
+   x = Math.round(event.clientX);
+   y = Math.round(event.clientY);
 
-    objCoord.innerHTML = "x val= [" + x + "] y val= [" + y + "]";
-    objCoord.style.left = x + 'px';
-    objCoord.style.top = y + 'px';
-    //setInterval(newItem, 2000);
-  }
+    //objCoord.innerHTML = "x val= [" + x + "] y val= [" + y + "]";
+    //objCoord.style.left = x + 'px';
+    //objCoord.style.top = y + 'px';
+ }
   
   function clear() {
    x = null;
@@ -43,6 +55,13 @@
    objCoord.innerHTML = "";
   }
  
+ /*
+  (function delayNewItem() {
+   var rand = Math.round(Math.random() * (1000 - 250)) + 250; /
+   setTimeout(function() {newItem(); delayNewItem();}, rand);
+  }());
+  */
+  
   /* Create a new <div> inside fullBod with a 0 or 1 */
   function newItem() {
    var itm = document.createElement("div");
@@ -60,8 +79,10 @@
    var list = document.getElementsByClassName("fallVal");
    for (i = 0; i < list.length; i++) {
     var newx = parseInt(list[i].style.top, 10) + 10;    
-    if (newx > document.getElementById("fullBod").clientHeight) {
+    if (newx >= document.getElementById("fullBod").clientHeight - 20) {
      /*remove item if it has reached the bottom*/
+     var btm = document.getElementById("btm");
+     btm.innerHTML = list[i].innerHTML + " " + btm.innerHTML;
      list[i].parentNode.removeChild(list[i]);
     } else {
      list[i].style.top = newx + "px";
@@ -92,8 +113,10 @@
   var moveobj = setInterval(falling, 25);
  
 </script>
+
 </head>
 <body>
-<div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()"><div id="coord"></div></div>
+<div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()"><div id="coord"></div><div id="btm"></div></div>
+
 </body>
 </html>
