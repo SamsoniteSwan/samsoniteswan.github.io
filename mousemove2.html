@@ -53,13 +53,13 @@
    itm.style.top = y + "px";
    itm.appendChild(val);
    addto.appendChild(itm);
-   fallingVals.push(itm); /* add to array */
+   //fallingVals.push(itm); /* add to array */
   }
   
   function falling() {
    var list = document.getElementsByClassName("fallVal");
    for (i = 0; i < list.length; i++) {
-    var newx = parseInt(list[i].style.top, 10) + 20;    
+    var newx = parseInt(list[i].style.top, 10) + 10;    
     if (newx > document.getElementById("fullBod").clientHeight) {
      /*remove item if it has reached the bottom*/
      list[i].parentNode.removeChild(list[i]);
@@ -89,7 +89,7 @@
   
   window.onload = init;
   var newobj = setInterval(newItem, 500);
-  var moveobj = setInterval(falling, 50);
+  var moveobj = setInterval(falling, 25);
  
 </script>
 </head>
