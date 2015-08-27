@@ -30,6 +30,7 @@
     objCoord.innerHTML = "x val= [" + x + "] y val= [" + y + "]";
     objCoord.style.left = x + 'px';
     objCoord.style.top = y + 'px';
+    setInterval(newItem, 2000);
   }
   
   function clear() {
@@ -37,30 +38,19 @@
    y = null;
    objCoord.innerHTML = "";
   }
-  /*
-  function makeVal() {
-
-    
-    var el = document.createElement("div");
-    el.setAttribute("left", x + "px");
-    el.setAttrubute("top", y + "px");
-    var ely = document.getElementById("valy");
-    var text = document.createTextNode("0");
-    el.appendChild(text);
-    ely.appendChild(el);
-    
-    var ely = document.getElementById("coord");
-    ely.setAttribute("left", x);
-    ely.setAttribute("top", y);
-    
+ 
+  /* Create a new <div> inside fullBod with a 0 or 1 */
+  function newItem() {
+   var itm = document.createElement("div");
+   var val = document.createTextNode("" + Math.round(Math.random())); /* create random 0 or 1 as text */
+   var addto = document.getElementById("fullBod");
+   itm.style.left = x + "px";
+   itm.style.top = y + "px";
+   itm.appendChild(val);
+   addto.appendChild(itm);
+   fallingVals.push(itm); /* add to array */
   }
   
-  function moveIt() {
-   objCoord.style.left = x + 'px';
-   objCoord.style.top = y + 'px';
-   setTimeout(moveIt,100);
-  }
- */ 
   function falling() {
    for (i = 0; i < fallingVals.length; i++) {
     var newx = parseInt(fallingVals[i].style.top, 10) + 20;
@@ -71,6 +61,7 @@
      fallingVals[i].style.top = newx + "px";
     }
    }
+   setTimeout(falling, 1000);
   }
   
   function init() {
