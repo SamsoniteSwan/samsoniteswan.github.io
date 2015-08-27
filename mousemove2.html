@@ -15,6 +15,9 @@
  #coord {
   position: absolute;
  }
+ .fallVal {
+  position: absolute;
+ }
 </style>
 
 <script>
@@ -22,6 +25,7 @@
  var x, y, objCoord;
  var fallingVals = [];
  /*var interv = setInterval(function(){makeVal()}, 2000);*/
+
  
   function handleMouseMove(event) {
     x = Math.round(event.clientX);
@@ -30,7 +34,7 @@
     objCoord.innerHTML = "x val= [" + x + "] y val= [" + y + "]";
     objCoord.style.left = x + 'px';
     objCoord.style.top = y + 'px';
-    setInterval(newItem, 2000);
+    //setInterval(newItem, 2000);
   }
   
   function clear() {
@@ -42,6 +46,7 @@
   /* Create a new <div> inside fullBod with a 0 or 1 */
   function newItem() {
    var itm = document.createElement("div");
+   itm.className = "fallVal";
    var val = document.createTextNode("" + Math.round(Math.random())); /* create random 0 or 1 as text */
    var addto = document.getElementById("fullBod");
    itm.style.left = x + "px";
@@ -52,16 +57,27 @@
   }
   
   function falling() {
+   var list = document.getElementsByClassName("fallVal");
+   for (i = 0; i < list.length; i++) {
+    var newx = parseInt(list[i].style.top, 10) + 20;    
+    if (newx > document.getElementById("fullBod").clientHeight) {
+     /*remove item if it has reached the bottom*/
+     list[i].parentNode.removeChild(list[i]);
+    } else {
+     list[i].style.top = newx + "px";
+    }
+   }
+   /*
    for (i = 0; i < fallingVals.length; i++) {
     var newx = parseInt(fallingVals[i].style.top, 10) + 20;
     if (newx > document.getElementById("fullBod").clientHeight) {
-     /*remove item if it has reached the bottom*/
+     /*remove item if it has reached the bottom
      delete fallingVals[i];
     } else {
      fallingVals[i].style.top = newx + "px";
     }
    }
-   setTimeout(falling, 1000);
+   setTimeout(falling, 1000); */
   }
   
   function init() {
@@ -72,7 +88,9 @@
   }
   
   window.onload = init;
-  
+  var newobj = setInterval(newItem, 500);
+  var moveobj = setInterval(falling, 50);
+ 
 </script>
 </head>
 <body>
