@@ -7,28 +7,40 @@
   height: 100%;
   width: 100%;
  }
- #valy {
+ #fullBod {
   margin: 0px;
   height: 100%;
   width: 100%;
- } 
+ }
+ #coord {
+  position: absolute;
+ }
 </style>
-</head>
-<body>
-<script>
-  function handleMouseMove(event) {
-    var x = event.clientX;
-    var y = event.clientY;
 
-    document.getElementById("valy").innerHTML = "x val= [" + x + "] y val= [" + y + "]";
-    
-    var interv = setInterval(function(){makeVal(x, y)}, 2000);
-    
+<script>
+
+ var x, y, objCoord;
+ var fallingVals = [];
+ /*var interv = setInterval(function(){makeVal()}, 2000);*/
+ 
+  function handleMouseMove(event) {
+    x = Math.round(event.clientX);
+    y = Math.round(event.clientY);
+
+    objCoord.innerHTML = "x val= [" + x + "] y val= [" + y + "]";
+    objCoord.style.left = x + 'px';
+    objCoord.style.top = y + 'px';
   }
   
-  function makeval(x, y) {
+  function clear() {
+   x = null;
+   y = null;
+   objCoord.innerHTML = "";
+  }
+  /*
+  function makeVal() {
 
-    /*
+    
     var el = document.createElement("div");
     el.setAttribute("left", x + "px");
     el.setAttrubute("top", y + "px");
@@ -36,14 +48,43 @@
     var text = document.createTextNode("0");
     el.appendChild(text);
     ely.appendChild(el);
-    */
-    var ely = document.getElementById("valy");
+    
+    var ely = document.getElementById("coord");
     ely.setAttribute("left", x);
     ely.setAttribute("top", y);
+    
   }
   
+  function moveIt() {
+   objCoord.style.left = x + 'px';
+   objCoord.style.top = y + 'px';
+   setTimeout(moveIt,100);
+  }
+ */ 
+  function falling() {
+   for (i = 0; i < fallingVals.length; i++) {
+    var newx = parseInt(fallingVals[i].style.top, 10) + 20;
+    if (newx > document.getElementById("fullBod").clientHeight) {
+     /*remove item if it has reached the bottom*/
+     delete fallingVals[i];
+    } else {
+     fallingVals[i].style.top = newx + "px";
+    }
+   }
+  }
+  
+  function init() {
+   objCoord = document.getElementById("coord");
+   x = 0;
+   y = 0;
+   /*moveIt();*/
+  }
+  
+  window.onload = init;
+  
 </script>
-
-<div id="valy" onmousemove="handleMouseMove(event)"></div>
+</head>
+<body>
+<div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()"><div id="coord"></div></div>
 </body>
 </html>
