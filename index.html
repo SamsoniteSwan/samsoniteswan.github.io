@@ -12,16 +12,28 @@
 
   h1 {
     text-align: center;
+    width: 200px;
+    position: relative;
+    -webkit-animation: backnforth 8s infinite;
+    animation: backnforth 8s infinite;
   }
+  
  html, body {
   margin: 0px;
   height: 100%;
   width: 100%;
  }
+ 
  #fullBod {
   margin: 0px;
   height: 100%;
   width: 100%;
+ }
+ #content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
  }
  #coord {
   position: absolute;
@@ -38,6 +50,19 @@
   position: absolute;
   font-size: 1.5em;
  }
+ 
+ /* Chrome, Opera, Safari */
+@-webkit-keyframes backnforth {
+	0% {left: 20%;}
+	50% {left: 60%;}
+	100% {left: 20%;}	
+}
+@keyframes backnforth {
+	0% {left: 20%;}
+	50% {left: 60%;}
+	100% {left: 20%;}
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
@@ -101,10 +126,11 @@
 </head>
 <body>
 <div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()">
+<div id="content">
   <h1>Welcome To My Site</h1>
-
 <p><a href="/resume.html">Link to my resume</a></p>
 <p><a href="http://blog.jlswanson.com">Blog</a></p>
+</div>
 <div id="coord"></div><div id="btm"></div></div>
 
 </body>
