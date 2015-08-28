@@ -17,6 +17,7 @@ body {
   width: 100%;
   font-size: 2em;
   position: relative;
+  text-shadow: 5px 5px 3.5px blue;
 }
 h2 {
   text-align: center;
@@ -27,7 +28,7 @@ h2 {
 }
 #table1 {
   border: 1px solid black;
-  margin: 10px auto;
+  margin: 10px auto; /* auto centers table */
   width: 95%;
 }
 #topScroll {
@@ -35,12 +36,16 @@ h2 {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 1);
-  z-index: 1;
+  background-color: rgba(230, 230, 230, 1);
+  z-index: 1; /*places above objects at the default (0)*/
 }
 #mainBody {
   position: absolute;
   top: 80px;
+}
+#tblEdu {
+ width: 90%;
+ margin: 5px auto;
 }
 .tblskills {
   margin: 20px 100px 20px 100px;
@@ -53,19 +58,11 @@ h2 {
 	transform: scale(1.15);
 	transition: all .3s ease-in-out;
 }
-
-/* Chrome, Opera, Safari */
-@-webkit-keyframes backnforth {
-	0% {left: 20%;}
-	50% {left: 60%;}
-	100% {left: 20%;}	
+.expHeader {
+	width: 90%;
+	margin: 0px auto;
+	font-weight: bold;
 }
-@keyframes backnforth {
-	0% {left: 20%;}
-	50% {left: 60%;}
-	100% {left: 20%;}
-}
-
 </style>
 
 </head>
@@ -113,7 +110,7 @@ h2 {
 <hr>
 
 <h2>Education</h2>
-<table id="tblEdu" style="width:100%">
+<table id="tblEdu">
 	<tr>
 	  <td>BS, Information Technology; Java Development Certificate<br><i>University of Massachusetts, Lowell, MA</i></td>
 	  <td style="text-align:right">expected December 2015</td>
@@ -135,4 +132,37 @@ h2 {
 
 <hr>
 <h2>Professional Experience</h2>
+
+<table class="expHeader">
+  <tr>
+	<td>Project Scheduler, Acquisition Support<br><i>Odyssey Systems Consulting / EDSI</i></td>
+	<td style="text-align:right">September 2009 - Current</td>
+  </tr>
+</table>
+<p>Tracking tasks, milestones, and resources for 30+ simultaneous multi-million dollar projects.  Creating management information systems and training users.  Administering SharePoint sites, permissions, calendars, lists, and libraries.  Conducting records inspections and training. Supervising and monitoring the Division’s self-assessment program, assigning checklists and setting user permissions.</p>
+
+<table class="expHeader">
+  <tr>
+	<td>Senior Administrative Support<br><i>Lockheed Martin</i></td>
+	<td style="text-align:right">November 2008 - August 2009</td>
+  </tr>
+</table>
+<p>Provided administrative support to the Air Force Research Laboratory.  Duties included: maintaining and organizing electronic filing systems; prepared research papers, presentations, and magazine articles to be cleared for public release; assisted scientists requesting travel to foreign countries; managed schedules for employee interviews and guest speakers.</p>
+
+<table class="expHeader">
+  <tr>
+	<td>Benefits Specialist<br><i>Fidelity Investments</i></td>
+	<td style="text-align:right">January 2007 - September 2008</td>
+  </tr>
+</table>
+<p>Managed employee insurance and benefit accounts of several multinational corporations, educating a wide variety of customers on available insurance and benefit programs.  Responded to customer inquiries with detailed information and efficiently troubleshot client issues.  Established rapport with customers while following all HIPAA regulations.</p>
+
+<table class="expHeader">
+  <tr>
+	<td>HR Assistant – Intern<br><i>U.S. Air Force</i></td>
+	<td style="text-align:right">May 2006 - August 2006</td>
+  </tr>
+</table>
+<p>Performed administrative duties for the Air Force, including populating personnel records into a new employee database and organizing project files for record keeping.</p>
+
 </div></div></div></body></html>
