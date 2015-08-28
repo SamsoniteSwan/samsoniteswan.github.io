@@ -23,14 +23,30 @@ h2 {
 }
 #geninfo {
   text-align: center;
+  width: 80%;
 }
 #table1 {
   border: 1px solid black;
   text-align: center;
   width: 100%;
 }
+#topScroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1;
+}
+#mainBody {
+  position: absolute;
+  top: 80px;
+}
 .tblskills {
   margin: 20px 100px 20px 100px;
+}
+.grow {
+ font-size: 1.2em;
 }
 /* .class selector; #id selector*/
 .grow:hover {
@@ -55,21 +71,19 @@ h2 {
 </head>
 
 <body>
-<div style="width:100%;">
-<div id="myname">Jeremy Swanson</div>
+<div id="topScroll" style="width:100%;">
+  <div id="myname">Jeremy Swanson</div>
 
-<div id="geninfo">
-<table id="table1">
-
-<tbody><tr>
-
-	<td>Lowell, MA</td>
-	<td><a href="mailto:jeremy@jlswanson.com?Subject=JLSwanson%20Website">jeremy@jlswanson.com</a></td>
-
-</tr>
-
-
-</tbody></table></div>
+  <div id="geninfo">
+    <table id="table1">
+      <tr>
+	<td style="text-align:left">Lowell, MA</td>
+	<td style="text-align:right"><a href="mailto:jeremy@jlswanson.com?Subject=JLSwanson%20Website">jeremy@jlswanson.com</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div id="mainBody">
 <h2>Summary</h2>
 <ul>
 	<li><div class="grow">Self-starter; 5+ years’ experience proactively identifying processes that can be automated, then building systems to electronically perform tasks and record data</div></li>
@@ -118,4 +132,7 @@ h2 {
 	<li><b>Document Deliverable Tracker:</b> organizes document submissions and responses, calculating due-dates and requirements.  Database consolidates document metadata from multiple projects, creating statistical charts and graphs for management.</li>
 	<li><b>User Administrator:</b>  centrally monitors usage, permissions, and data changes of other systems.</li>
 </ul>
-</div></div></body></html>
+
+<hr>
+<h2>Professional Experience</h2>
+</div></div></div></body></html>
