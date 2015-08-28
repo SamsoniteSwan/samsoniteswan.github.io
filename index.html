@@ -6,19 +6,17 @@
 <!--CSS styling, HTML5 compliant-->
 <style>
 
-  body {
-    background-color: rgb(192, 192, 236);
-  }
-
-  h1 {
+  #ttl {
     text-align: center;
-    width: 200px;
-    position: relative;
+    /*width: 80%;*/
+    font-size: 2.0em;
+    position: fixed;
     -webkit-animation: backnforth 8s infinite;
     animation: backnforth 8s infinite;
   }
   
  html, body {
+ background-color: rgb(192, 192, 236);
   margin: 0px;
   height: 100%;
   width: 100%;
@@ -29,11 +27,9 @@
   height: 100%;
   width: 100%;
  }
- #content {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    margin-left: 100px;
+ #cntent {
+   position: absolute;
+   margin: 50px;
  }
  #coord {
   position: absolute;
@@ -125,13 +121,16 @@
 
 </head>
 <body>
+  <div id="cntent">
+    <div id="ttl">Welcome To My Site</div>
+    <p><a href="/resume.html">Link to my resume</a></p>
+    <p><a href="http://blog.jlswanson.com">Blog</a></p>
+  </div>
 <div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()">
-<div id="content">
-  <h1>Welcome To My Site</h1>
-<p><a href="/resume.html">Link to my resume</a></p>
-<p><a href="http://blog.jlswanson.com">Blog</a></p>
+
+  <div id="coord"></div>
+  <div id="btm"></div>
 </div>
-<div id="coord"></div><div id="btm"></div></div>
 
 </body>
 </html>
