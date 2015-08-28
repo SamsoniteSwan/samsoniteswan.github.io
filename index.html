@@ -1,29 +1,111 @@
-﻿
-<!-- saved from url=(0050)file:///C:/Users/swans_000/Desktop/ResumeHTML.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Swanson Home Page</title>
-<script type="text/javascript">
 
-</script>
 
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<title>Swanson Home Page</title> 
 <!--CSS styling, HTML5 compliant-->
 <style>
-body {
-  background-color: rgb(192, 192, 236);
-}
 
-h1 {
+  body {
+    background-color: rgb(192, 192, 236);
+  }
+
+  h1 {
+    text-align: center;
+  }
+ html, body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ }
+ #fullBod {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+ }
+ #coord {
+  position: absolute;
+ }
+ #btm {
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
   text-align: center;
-}
-
+  vertical-align: bottom;
+  font-size: 1.5em;
+ }
+ .fallVal {
+  position: absolute;
+  font-size: 1.5em;
+ }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+ var x, y, objCoord;
+ var fallingVals = [];
+
+ 
+ function handleMouseMove(event) {
+   x = Math.round(event.clientX);
+   y = Math.round(event.clientY);
+ }
+  
+  function clear() {
+   x = null;
+   y = null;
+   objCoord.innerHTML = "";
+  }
+ 
+  /* Create a new <div> inside fullBod with a 0 or 1 */
+  function newItem() {
+   var itm = document.createElement("div");
+   itm.className = "fallVal";
+   var val = document.createTextNode("" + Math.round(Math.random())); /* create random 0 or 1 as text */
+   var addto = document.getElementById("fullBod");
+   itm.style.left = x + "px";
+   itm.style.top = y + "px";
+   itm.appendChild(val);
+   addto.appendChild(itm);
+   //fallingVals.push(itm); /* add to array */
+  }
+  
+  function falling() {
+   var list = document.getElementsByClassName("fallVal");
+   for (i = 0; i < list.length; i++) {
+    var newx = parseInt(list[i].style.top, 10) + 10;    
+    if (newx >= document.getElementById("fullBod").clientHeight - 30) {
+     /*remove item if it has reached the bottom*/
+     var btm = document.getElementById("btm");
+     btm.innerHTML = list[i].innerHTML + " " + btm.innerHTML;
+     list[i].parentNode.removeChild(list[i]);
+    } else {
+     list[i].style.top = newx + "px";
+    }
+   }
+  }
+  
+  function init() {
+   objCoord = document.getElementById("coord");
+   x = 0;
+   y = 0;
+   /*moveIt();*/
+  }
+  
+  window.onload = init;
+  var newobj = setInterval(newItem, 500);
+  var moveobj = setInterval(falling, 25);
+ 
+</script>
 
 </head>
-
 <body>
-<h1>Welcome To My Site</h1>
+<div id="fullBod" onmousemove="handleMouseMove(event)" onmouseout="clear()">
+  <h1>Welcome To My Site</h1>
 
 <p><a href="/resume.html">Link to my resume</a></p>
 <p><a href="http://blog.jlswanson.com">Blog</a></p>
+<div id="coord"></div><div id="btm"></div></div>
 
-</body></html>
+</body>
+</html>
