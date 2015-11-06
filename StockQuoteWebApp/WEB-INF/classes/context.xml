@@ -1,0 +1,19 @@
+
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <Resource name="jdbc/Stocks"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="monty"
+              password="some_pass"
+              driverClassName="com.mysql.jdbc.Driver"
+              description="stocks"
+              url="jdbc:mysql://localhost:3306/stocks"
+              maxActive="15"
+              maxIdle="3"/>
+
+</Context>
